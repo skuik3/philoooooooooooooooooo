@@ -6,7 +6,7 @@
 /*   By: skuik <skuik@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 12:26:25 by skuik             #+#    #+#             */
-/*   Updated: 2025/08/04 20:00:04 by skuik            ###   ########.fr       */
+/*   Updated: 2025/08/05 01:20:53 by skuik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,14 @@ int	check_philo_death(t_state *state, int i)
 void	print_it(t_philo *philo, char *msg)
 {
 	long	now;
+	int		running;
 
 	pthread_mutex_lock(&philo->state->print_lock);
-	now = get_time() - get_long(&philo,philo->state->print_lock);
-	if (philo->state->is_running)
+	now = get_time() - philo->state->config->start_time;
+	pthread_mutex_lock(&philo->state->simulation_lock);
+	running = philo->state->is_running;
+	pthread_mutex_unlock(&philo->state->simulation_lock);
+	if (running)
 		printf("%ld\t%d %s\n", now, philo->id, msg);
 	pthread_mutex_unlock(&philo->state->print_lock);
 }
@@ -50,14 +54,4 @@ void	delay(int duration)
 	{
 		usleep(1);
 	}
-}
-
-long get_long(t_philo *philo, long val)
-{
-	long returnable;
-	pthread_mutex_lock(&philo->food_lock);
-	returnable = val;
-	pthread_mutex_unlock(&philo->food_lock);
-	return returnable;
-	
 }

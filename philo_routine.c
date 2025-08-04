@@ -6,7 +6,7 @@
 /*   By: skuik <skuik@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 12:26:25 by skuik             #+#    #+#             */
-/*   Updated: 2025/08/04 19:53:34 by skuik            ###   ########.fr       */
+/*   Updated: 2025/08/05 00:57:42 by skuik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,12 @@ static void	mark_philo_fed(t_philo *philo)
 
 void	is_eating(t_philo *philo)
 {
-	if (!philo->state->is_running)
+	int running;
+
+	pthread_mutex_lock(&philo->state->simulation_lock);
+	running = philo->state->is_running;
+	pthread_mutex_unlock(&philo->state->simulation_lock);
+	if (!running)
 		return ;
 	pthread_mutex_lock(&philo->food_lock);
 	philo->lastmeal = get_time();
@@ -36,7 +41,12 @@ void	is_eating(t_philo *philo)
 
 void	is_sleeping(t_philo *philo)
 {
-	if (!philo->state->is_running)
+	int running;
+
+	pthread_mutex_lock(&philo->state->simulation_lock);
+	running = philo->state->is_running;
+	pthread_mutex_unlock(&philo->state->simulation_lock);
+	if (!running)
 		return ;
 	print_it(philo, "is sleeping");
 	delay(philo->config->t_sleep);
@@ -44,7 +54,12 @@ void	is_sleeping(t_philo *philo)
 
 void	is_thinking(t_philo *philo)
 {
-	if (!philo->state->is_running)
+	int running;
+
+	pthread_mutex_lock(&philo->state->simulation_lock);
+	running = philo->state->is_running;
+	pthread_mutex_unlock(&philo->state->simulation_lock);
+	if (!running)
 		return ;
 	print_it(philo, "is thinking");
 	delay(1);

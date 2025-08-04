@@ -6,7 +6,7 @@
 /*   By: skuik <skuik@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 12:06:23 by skuik             #+#    #+#             */
-/*   Updated: 2025/08/04 19:59:25 by skuik            ###   ########.fr       */
+/*   Updated: 2025/08/05 01:19:15 by skuik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_config
 {
 	int							snacks;
 	int							philo_nbr;
-	long				start_time;
+	long						start_time;
 	size_t						t_die;
 	size_t						t_eat;
 	size_t						t_sleep;
@@ -99,6 +99,5 @@ void			print_it(t_philo *philo, char *msg);
 unsigned long	get_time(void);
 void			delay(int duration);
 int				check_philo_death(t_state *state, int i);
-long get_long(t_philo *philo, long val);
 
 #endif

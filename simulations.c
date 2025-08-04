@@ -6,7 +6,7 @@
 /*   By: skuik <skuik@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 11:59:18 by skuik             #+#    #+#             */
-/*   Updated: 2025/08/04 19:51:48 by skuik            ###   ########.fr       */
+/*   Updated: 2025/08/05 00:54:50 by skuik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,6 @@ static void	*skinny_philo(t_philo *philo)
 	pthread_mutex_unlock(&philo->food_lock);
 	return (NULL);
 }
-
-// static void	*skinny_philo(t_philo *philo)
-// {
-// 	print_it(philo, "has taken a fork");
-// 	delay(philo->config->t_die);
-// 	print_it(philo, "died");
-// 	return (NULL);
-// }
 
 static void	initial_think_if_even(t_philo *philo)
 {
@@ -67,6 +59,7 @@ static int	handle_state_checks(t_state *state, int i)
 	if (check_philo_death(state, i)
 		|| state->full_philos == state->config->philo_nbr)
 	{
+		pthread_mutex_unlock(&state->state_lock);
 		return (1);
 	}
 	pthread_mutex_unlock(&state->state_lock);

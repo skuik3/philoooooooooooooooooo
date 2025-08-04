@@ -6,7 +6,7 @@
 /*   By: skuik <skuik@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 15:50:40 by skuik             #+#    #+#             */
-/*   Updated: 2025/08/04 17:54:51 by skuik            ###   ########.fr       */
+/*   Updated: 2025/08/05 01:09:10 by skuik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 static void	print_death_or_done(t_state *state, int i)
 {
-	if (state->full_philos == state->config->philo_nbr)
+	int full_count;
+
+	pthread_mutex_lock(&state->state_lock);
+	full_count = state->full_philos;
+	pthread_mutex_unlock(&state->state_lock);
+	if (full_count == state->config->philo_nbr)
 		print_it(state->philos[i], "everyone has finished the meals");
 	else
 		print_it(state->philos[i], "died");

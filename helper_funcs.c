@@ -6,7 +6,7 @@
 /*   By: skuik <skuik@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 13:44:03 by skuik             #+#    #+#             */
-/*   Updated: 2025/08/04 17:35:14 by skuik            ###   ########.fr       */
+/*   Updated: 2025/08/05 01:00:23 by skuik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,19 @@ int	check_args(char *argv[], int argc)
 void	*philo_actions(void *arg)
 {
 	t_philo	*philo;
+	int		running;
 
 	philo = (t_philo *)arg;
 	philo->lastmeal = get_time();
 	if (philo->id % 2 == 0)
 		usleep(100);
-	while (philo->state->is_running)
+	while(1)
 	{
+		pthread_mutex_lock(&philo->state->simulation_lock);
+		running = philo->state->is_running;
+		pthread_mutex_unlock(&philo->state->simulation_lock);
+		if (!running)
+			break;
 		take_forks(philo);
 		is_eating(philo);
 		put_forks(philo);
