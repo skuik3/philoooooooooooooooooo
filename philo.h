@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skuik <skuik@student.42prague.com>         +#+  +:+       +#+        */
+/*   By: skuik <skuik@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 12:06:23 by skuik             #+#    #+#             */
-/*   Updated: 2025/08/04 23:52:39 by skuik            ###   ########.fr       */
+/*   Updated: 2025/08/05 14:35:25 by skuik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void			put_forks(t_philo *philo);
 void			*philo_process(void *arg);
 void			*routine(void *arg);
 
-//utils3.c
+//utils.c
 void			print_it(t_philo *philo, char *msg);
 unsigned long	get_time(void);
 void			delay(int duration);

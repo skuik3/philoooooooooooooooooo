@@ -6,7 +6,7 @@
 #    By: skuik <skuik@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/21 11:59:45 by skuik             #+#    #+#              #
-#    Updated: 2025/08/04 19:53:40 by skuik            ###   ########.fr        #
+#    Updated: 2025/08/05 14:32:13 by skuik            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRCS		=	main.c \
 				helper_funcs2.c \
 				philo_routine.c \
 				simulations.c \
-				utils3.c \
+				utils.c \
 
 OBJS		=	$(SRCS:.c=.o)
 

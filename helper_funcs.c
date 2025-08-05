@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   helper_funcs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skuik <skuik@student.42prague.com>         +#+  +:+       +#+        */
+/*   By: skuik <skuik@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 13:44:03 by skuik             #+#    #+#             */
-/*   Updated: 2025/08/05 00:02:46 by skuik            ###   ########.fr       */
+/*   Updated: 2025/08/05 14:33:53 by skuik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,14 @@ int	check_args(char *argv[], int argc)
 	i = 1;
 	if (argc < 5 || argc > 6)
 	{
-		printf("Error\n");
+		printf("Error\nInvalid nbr of args\n");
 		return (ERROR);
 	}
 	while (argv[i])
 	{
 		if (!is_numeric_string(argv[i]))
 		{
-			printf("Error\n");
+			printf("Error\nArgs must be numbers(+)\n");
 			return (ERROR);
 		}
 		i++;

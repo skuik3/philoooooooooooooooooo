@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   helper_funcs2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skuik <skuik@student.42prague.com>         +#+  +:+       +#+        */
+/*   By: skuik <skuik@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 15:50:40 by skuik             #+#    #+#             */
-/*   Updated: 2025/08/04 23:29:32 by skuik            ###   ########.fr       */
+/*   Updated: 2025/08/05 14:31:25 by skuik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	configload(char **argv, t_config *config, int argc)
 		config->snacks = -1;
 	if (is_invalid_config(config))
 	{
-		printf("Error\n");
+		printf("Error\nNbr of philos: 1-200\n");
 		return (ERROR);
 	}
 	return (SUCCESS);
