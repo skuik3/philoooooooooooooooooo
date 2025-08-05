@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils3.c                                           :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skuik <skuik@student.42.fr>                +#+  +:+       +#+        */
+/*   By: skuik <skuik@student.42prague.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 12:26:25 by skuik             #+#    #+#             */
-/*   Updated: 2025/08/05 01:20:53 by skuik            ###   ########.fr       */
+/*   Updated: 2025/08/05 00:05:40 by skuik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 int	check_philo_death(t_state *state, int i)
 {
 	long	time;
+	int		meal_count;
 
 	time = get_time() - state->philos[i]->lastmeal;
-	if (state->philos[i]->meal_count > 0 && time > (long)state->config->t_die)
+	meal_count = state->philos[i]->meal_count;
+	if (meal_count > 0 && time > (long)state->config->t_die)
 		return (1);
 	return (0);
 }

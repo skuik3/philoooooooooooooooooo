@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   helper_funcs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skuik <skuik@student.42.fr>                +#+  +:+       +#+        */
+/*   By: skuik <skuik@student.42prague.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 13:44:03 by skuik             #+#    #+#             */
-/*   Updated: 2025/08/05 01:00:23 by skuik            ###   ########.fr       */
+/*   Updated: 2025/08/05 00:02:46 by skuik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,16 +88,18 @@ void	*philo_actions(void *arg)
 	int		running;
 
 	philo = (t_philo *)arg;
+	pthread_mutex_lock(&philo->food_lock);
 	philo->lastmeal = get_time();
+	pthread_mutex_unlock(&philo->food_lock);
 	if (philo->id % 2 == 0)
 		usleep(100);
-	while(1)
+	while (1)
 	{
 		pthread_mutex_lock(&philo->state->simulation_lock);
 		running = philo->state->is_running;
 		pthread_mutex_unlock(&philo->state->simulation_lock);
 		if (!running)
-			break;
+			break ;
 		take_forks(philo);
 		is_eating(philo);
 		put_forks(philo);

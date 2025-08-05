@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_routine.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skuik <skuik@student.42.fr>                +#+  +:+       +#+        */
+/*   By: skuik <skuik@student.42prague.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 12:26:25 by skuik             #+#    #+#             */
-/*   Updated: 2025/08/05 00:57:42 by skuik            ###   ########.fr       */
+/*   Updated: 2025/08/04 23:29:53 by skuik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	mark_philo_fed(t_philo *philo)
 
 void	is_eating(t_philo *philo)
 {
-	int running;
+	int	running;
 
 	pthread_mutex_lock(&philo->state->simulation_lock);
 	running = philo->state->is_running;
@@ -41,7 +41,7 @@ void	is_eating(t_philo *philo)
 
 void	is_sleeping(t_philo *philo)
 {
-	int running;
+	int	running;
 
 	pthread_mutex_lock(&philo->state->simulation_lock);
 	running = philo->state->is_running;
@@ -54,7 +54,7 @@ void	is_sleeping(t_philo *philo)
 
 void	is_thinking(t_philo *philo)
 {
-	int running;
+	int	running;
 
 	pthread_mutex_lock(&philo->state->simulation_lock);
 	running = philo->state->is_running;

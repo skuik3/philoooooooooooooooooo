@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skuik <skuik@student.42.fr>                +#+  +:+       +#+        */
+/*   By: skuik <skuik@student.42prague.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 12:06:23 by skuik             #+#    #+#             */
-/*   Updated: 2025/08/05 01:19:15 by skuik            ###   ########.fr       */
+/*   Updated: 2025/08/04 23:52:39 by skuik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ typedef struct s_philo
 	int							fork2;
 	int							id;
 	int							fed;
-	int							meal_count;
+	long						meal_count;
 	size_t						lastmeal;
 	pthread_t					thread;
 	pthread_mutex_t				food_lock;

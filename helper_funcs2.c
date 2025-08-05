@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   helper_funcs2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skuik <skuik@student.42.fr>                +#+  +:+       +#+        */
+/*   By: skuik <skuik@student.42prague.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 15:50:40 by skuik             #+#    #+#             */
-/*   Updated: 2025/08/05 01:09:10 by skuik            ###   ########.fr       */
+/*   Updated: 2025/08/04 23:29:32 by skuik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	print_death_or_done(t_state *state, int i)
 {
-	int full_count;
+	int	full_count;
 
 	pthread_mutex_lock(&state->state_lock);
 	full_count = state->full_philos;
